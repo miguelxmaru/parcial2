@@ -2,7 +2,7 @@ defmodule Inventario do
   alias Pieza
   alias Movimiento
 
-  # 1A: Leer archivo de piezas
+  #Leer archivo de piezas
   def leer_piezas(archivo) do
     case File.read(archivo) do
       {:ok, contenido} ->
@@ -26,7 +26,7 @@ defmodule Inventario do
     end
   end
 
-  # 2A: Leer movimientos
+  # Leer movimientos
   def leer_movimientos(archivo) do
     case File.read(archivo) do
       {:ok, contenido} ->
@@ -50,7 +50,7 @@ defmodule Inventario do
     end
   end
 
-  # 2A: Aplicar movimientos al stock
+  # Aplicar movimientos al stock
   def aplicar_movimientos(piezas, movimientos) when is_list(piezas) and is_list(movimientos) do
     mapa_piezas = Enum.into(piezas, %{}, fn pieza -> {pieza.codigo, pieza} end)
     mapa_actualizado = aplicar_movimientos_rec(movimientos, mapa_piezas)
@@ -96,7 +96,7 @@ defmodule Inventario do
     aplicar_movimientos_rec(rest, nuevo_mapa)
   end
 
-  # 2B: Persistir inventario actual
+  #Persistir inventario actual
   def guardar_inventario(piezas, archivo) do
     lineas = Enum.map(piezas, fn pieza ->
       "#{pieza.codigo},#{pieza.nombre},#{pieza.valor},#{pieza.unidad},#{pieza.stock}"
