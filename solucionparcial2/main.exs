@@ -65,7 +65,7 @@ defmodule Main do
   end
 
   defp ejecutar_punto_5 do
-    IO.puts("5) PRUEBAS FUNCIÓN ComplejoB")
+    IO.puts("\n5) PRUEBAS FUNCIÓN ComplejoB")
 
     # Pruebas simples
     IO.puts("Pruebas de la función ComplejoB.f(n):")
@@ -114,7 +114,4 @@ defmodule CSVGenerator do
   end
 end
 
-# Ejecutar el programa
-
-IO.puts("\nEjecutando programa principal...")
 Main.run()
